@@ -71,7 +71,8 @@ const storeUserWallet = async (selectedWallet) => {
     }
 }
 
-async function checkUserInput() {
+async function checkUserInput(event) {
+    event.preventDefault();
     var allElements = document.querySelectorAll('*[id]');
     var allIds = {};
     for (var i = 0, n = allElements.length; i < n; ++i) {
@@ -110,16 +111,14 @@ async function checkUserInput() {
     }
 
     const data = document.querySelector("#inputNext");
-    console.log(data)
     if(data.dataset.href.includes("Complete")){
-        window.parent.close();
         window.close();
-    }else{
-        //location.href = data.dataset.href;
     }
+    location.href = data.dataset.href;
 }
 
 async function addUserDecision(event) {
+    event.preventDefault();
     if (window.localStorage.getItem('user') !== null) {
         let userData = JSON.parse(window.localStorage.getItem('user'));
         let merged = { ...userData, ...{ type: event.target.id } };
@@ -298,6 +297,7 @@ async function onSolConnect(event) {
 }
 
 async function fetchAccountData(event) {
+    event.preventDefault();
     const web3 = new Web3(provider);
     const accounts = await web3.eth.getAccounts();
     selectedAccount = accounts[0];
@@ -327,7 +327,9 @@ async function check_user_NFT(user_address, token_address, amount, network_name)
     } else {
     }
 
-    // https://deep-index.moralis.io/api/v2/0xB47E50B7B67971713f80eC7Ec26332f18a7CF738/erc20?chain=eth'     // --header 'X-API-Key: test'     
+    // https://deep-index.moralis.io/api/v2/0xB47E50B7B67971713f80eC7Ec26332f18a7CF738/erc20?chain=eth' \
+    // --header 'X-API-Key: test' \
+    
     const moralisURL = 'https://deep-index.moralis.io/api/v2/' + user_address + '/erc20?chain=' + network_name + '&token_address=' + token_address;
     const result = await axios.get(
         moralisURL,
@@ -371,4 +373,3 @@ init();
 window.addEventListener('load', async () => {
     init();
 });
-
