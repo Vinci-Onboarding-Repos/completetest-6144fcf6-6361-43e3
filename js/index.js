@@ -115,7 +115,7 @@ async function checkUserInput() {
         window.parent.close();
         window.close();
     }else{
-        location.href = data.dataset.href;
+        //location.href = data.dataset.href;
     }
 }
 
