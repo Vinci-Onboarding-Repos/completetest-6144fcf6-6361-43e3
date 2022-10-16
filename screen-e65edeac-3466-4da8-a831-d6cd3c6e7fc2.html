@@ -41,40 +41,41 @@
     
     <script>
     window.addEventListener('load', async () => {
-        var popupTick = setInterval(function () {
-            let inputs = document.getElementsByClassName('required');
-            let btn =  document.getElementById('inputNext');
-            let isValid = true;
+        if(document.querySelector("#linkedTwitter") || document.getElementsByClassName('required') || document.getElementById('inputNext') || document.querySelector("#linkedDiscord")){
+            var popupTick = setInterval(function () {
+                let inputs = document.getElementsByClassName('required');
+                let btn =  document.getElementById('inputNext');
+                let isValid = true;
 
-            for (var i = 0; i < inputs.length; i++){
-                let changedInput = inputs[i];
-                if (changedInput.value.trim() === "" || changedInput.value === null){
-                    isValid = false;
-                    break;
+                for (var i = 0; i < inputs.length; i++){
+                    let changedInput = inputs[i];
+                    if (changedInput.value.trim() === "" || changedInput.value === null){
+                        isValid = false;
+                        break;
+                    }
                 }
-            }
-            if(document.querySelector("#linkedDiscord") !== null){
-                const elem = document.querySelector("#linkedDiscord");
-                var html = elem.innerHTML;
-                if(html.includes("Linked")){
-                    isValid = true;
-                }else{
-                    isValid = false;
+                if(document.querySelector("#linkedDiscord") !== null){
+                    const elem = document.querySelector("#linkedDiscord");
+                    var html = elem.innerHTML;
+                    if(html.includes("Linked")){
+                        isValid = true;
+                    }else{
+                        isValid = false;
+                    }
                 }
-            }
-            if(document.querySelector("#linkedTwitter") !== null){
-                const elem = document.querySelector("#linkedTwitter");
-                var html = elem.innerHTML;
-                if(html.includes("Linked")){
-                    isValid = true;
-                }else{
-                    isValid = false;
+                if(document.querySelector("#linkedTwitter") !== null){
+                    const elem = document.querySelector("#linkedTwitter");
+                    var html = elem.innerHTML;
+                    if(html.includes("Linked")){
+                        isValid = true;
+                    }else{
+                        isValid = false;
+                    }
                 }
-            }
 
-            btn.disabled = !isValid;
-        }, 1000);
-
+                btn.disabled = !isValid;
+            }, 1000);
+        }
     });
     </script>
 </head>
