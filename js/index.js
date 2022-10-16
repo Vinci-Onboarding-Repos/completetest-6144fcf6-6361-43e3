@@ -110,10 +110,13 @@ async function checkUserInput() {
     }
 
     const data = document.querySelector("#inputNext");
+    console.log(data)
     if(data.dataset.href.includes("Complete")){
+        window.parent.close();
         window.close();
+    }else{
+        location.href = data.dataset.href;
     }
-    location.href = data.dataset.href;
 }
 
 async function addUserDecision(event) {
