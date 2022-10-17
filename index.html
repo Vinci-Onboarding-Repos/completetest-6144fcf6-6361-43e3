@@ -41,7 +41,7 @@
     
     <script>
     window.addEventListener('load', async () => {
-        if(document.querySelector("#linkedTwitter") || document.getElementsByClassName('required') || document.getElementById('inputNext') || document.querySelector("#linkedDiscord")){
+        if(document.getElementById('inputNext')){
             var popupTick = setInterval(function () {
                 let inputs = document.getElementsByClassName('required');
                 let btn =  document.getElementById('inputNext');
