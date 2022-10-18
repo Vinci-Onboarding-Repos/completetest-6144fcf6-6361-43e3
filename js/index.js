@@ -392,8 +392,8 @@ async function addxptopath(event) {
     axios.post(BASE_URL + '/changeuserxpbasedonpath', {
         path: page,
         xp: data.dataset.xp,
-        API_KEY: 'VINCI_DEV_6E577'
-        userData: window.localStorage.getItem('user').id
+        API_KEY: 'VINCI_DEV_6E577',
+        userData: window.localStorage.getItem('user').id,
     });
 }
 
