@@ -377,15 +377,14 @@ async function addxptopath(event) {
     const page = pathList[pathList.length - 1] == projectId ?
         "index" : pathList[pathList.length - 1];
 
-    console.log(data.dataset.xp)
     const data = document.querySelector("#xp");
+    console.log(data.dataset.xp)
     
     if (window.localStorage.getItem('user') === null) {
         var allIds = {};
         allIds.id = 'onboarding-user-' + crypto.randomUUID();
         window.localStorage.setItem('user', JSON.stringify(allIds));
     }
-    console.log(data)
     console.log(window.localStorage.getItem('user').id)
 
     var pathArray = window.location.pathname.split('/');
