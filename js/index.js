@@ -365,6 +365,29 @@ async function check_user_NFT(user_address, token_address, amount, network_name)
 
   }
 
+async function addxptopath(){
+    
+    const regex = /(\/)\1+/g;
+    const replaceSlashesURL = window.location.href.replace(regex, "/");
+    // There might be a "/" at the end. remove it
+    const formattedURL = replaceSlashesURL.replace(/\/$/, "");
+
+    const pathList = formattedURL.split("/");
+    const page = pathList[pathList.length - 1] == projectId ?
+        "index" : pathList[pathList.length - 1];
+
+    console.log(page)
+    const data = document.querySelector("#xp");
+    
+    var pathArray = window.location.pathname.split('/');
+    axios.post(BASE_URL + '/changeuserxpbasedonpath', {
+        path: pathArray[1],
+        xp: data.dataset.xp,
+        requestURL: window.location.href,
+        location: countryR.country,
+        API_KEY: 'VINCI_DEV_6E577'
+    });
+}
 
 logPageView();
 init();
