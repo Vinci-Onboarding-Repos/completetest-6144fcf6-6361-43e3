@@ -377,7 +377,7 @@ async function addxptopath(event) {
     const page = pathList[pathList.length - 1] == projectId ?
         "index" : pathList[pathList.length - 1];
 
-    console.log(page)
+    console.log(data.dataset.xp)
     const data = document.querySelector("#xp");
     
     if (window.localStorage.getItem('user') === null) {
@@ -391,9 +391,11 @@ async function addxptopath(event) {
     var pathArray = window.location.pathname.split('/');
     axios.post(BASE_URL + '/changeuserxpbasedonpath', {
         path: page,
+        projectId: projectId,
         xp: data.dataset.xp,
         API_KEY: 'VINCI_DEV_6E577',
-        userData: window.localStorage.getItem('user').id,
+        userData: JSON.parse(window.localStorage.getItem('user')).id,
+        add: true,
     });
 }
 
