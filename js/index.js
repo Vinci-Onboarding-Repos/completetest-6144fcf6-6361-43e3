@@ -367,6 +367,7 @@ async function check_user_NFT(user_address, token_address, amount, network_name)
 
 async function addxptopath(event) {
     event.preventDefault();
+    var projectId = window.location.pathname.split('/')[1];
     const regex = /(\/)\1+/g;
     const replaceSlashesURL = window.location.href.replace(regex, "/");
     // There might be a "/" at the end. remove it
