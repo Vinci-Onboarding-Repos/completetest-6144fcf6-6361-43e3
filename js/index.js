@@ -384,15 +384,13 @@ async function addxptopath(){
         "index" : pathList[pathList.length - 1];
 
     const data = document.querySelector("#xp");
-    console.log(data.dataset.xp)
     
     if (window.localStorage.getItem('user') === null) {
         var allIds = {};
         allIds.id = 'onboarding-user-' + crypto.randomUUID();
         window.localStorage.setItem('user', JSON.stringify(allIds));
     }
-    console.log(data)
-    console.log(JSON.parse(window.localStorage.getItem('user')).id)
+    console.log(page)
 
     var pathArray = window.location.pathname.split('/');
     axios.post(BASE_URL + '/changeuserxpbasedonpath', {
