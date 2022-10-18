@@ -7,7 +7,7 @@
   <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
   <script> 
     window.addEventListener('load', async () => {
-        const ignore = ["WEB3_CONNECT_MODAL_ID", "template", "inputNext", "eth", "sol", "error-text", "discord", "twitter", "linkedTwitter", "linkedDiscord"];
+        const ignore = ["WEB3_CONNECT_MODAL_ID", "template", "inputNext", "eth", "sol","but", "error-text", "discord", "twitter", "linkedTwitter", "linkedDiscord"];
         var allElements = document.querySelectorAll('*[id]');
         for (var i = 0, n = allElements.length; i < n; ++i) {
         var el = allElements[i];
@@ -34,6 +34,9 @@
         }
         if(document.querySelector("#twitter") !== null){
             document.querySelector("#twitter").addEventListener("click", openPopupT);
+        }
+        if(document.querySelector("#but") !== null){
+            document.querySelector("#but").addEventListener("click", addxptopath);
         }
         
     });
@@ -86,6 +89,6 @@
         <script type="text/javascript" src="https://unpkg.com/@walletconnect/web3-provider@1.2.1/dist/umd/index.min.js"></script>
         <script type="text/javascript" src="https://unpkg.com/fortmatic@2.0.6/dist/fortmatic.js"></script>
         <script type="text/javascript" src="js/index.js"></script> 
-        <div id="template" class="TemplatesRootRoot baseTop"><img alt="background" style="background-image:url()" src="https://firebasestorage.googleapis.com/v0/b/vinci-dev-6e577.appspot.com/o/default-logo%2FleftLogo.png?alt=media" class="BrandLogo1 image_ButtonsTemplate"/><div class="FlexColumn col1"><div class="FlexColumn1 col2"><div class="Text1 title">Example Title</div><div class="Paragraph paragP">Example Subtitle</div></div><div class="FlexRow"><div class="Cardsprojects CardsprojectsP"><img src="https://firebasestorage.googleapis.com/v0/b/vinci-dev-6e577.appspot.com/o/default-logo%2FleftLogo.png?alt=media" alt="background" class="Image1 Image1P"/><span class="Paragraph1 buttonParag">example</span><div class="FlexColumn2"><div class="DividerCTA"><img class="Divider" alt="divider" src="https://file.rendit.io/n/SKAsRRePdjw4Ba27didP.svg"/><a href="screen-0c03c117-d14a-452c-91d5-1c6efb4a977f.html" rel="noreferrer" target=""><button class="LastWeek buttonContent">example</button></a></div></div></div><div class="Cardsprojects CardsprojectsP"><img src="https://firebasestorage.googleapis.com/v0/b/vinci-dev-6e577.appspot.com/o/default-logo%2FleftLogo.png?alt=media" alt="background" class="Image1 Image1P"/><span class="Paragraph1 buttonParag">example</span><div class="FlexColumn2"><div class="DividerCTA"><img class="Divider" alt="divider" src="https://file.rendit.io/n/SKAsRRePdjw4Ba27didP.svg"/><a href="screen-e65edeac-3466-4da8-a831-d6cd3c6e7fc2.html" rel="noreferrer" target=""><button class="LastWeek buttonContent">example</button></a></div></div></div></div><div class="FlexRow1 row2"><a href="#"><button style="background-color:#0d1121" class="LastWeek4 buttonContent">Back</button></a></div></div></div>
+        <div id="template" class="TemplatesRootRoot baseTop"><img alt="background" style="background-image:url()" src="https://firebasestorage.googleapis.com/v0/b/vinci-dev-6e577.appspot.com/o/default-logo%2FleftLogo.png?alt=media" class="BrandLogo1 image_ButtonsTemplate"/><div id="xp" data-xp=2 class="FlexColumn col1"><div class="FlexColumn1 col2"><div class="Text1 title">Example Title</div><div class="Paragraph paragP">Example Subtitle</div></div><div class="FlexRow"><div class="Cardsprojects CardsprojectsP"><img src="https://firebasestorage.googleapis.com/v0/b/vinci-dev-6e577.appspot.com/o/default-logo%2FleftLogo.png?alt=media" alt="background" class="Image1 Image1P"/><span class="Paragraph1 buttonParag">example</span><div class="FlexColumn2"><div class="DividerCTA"><img class="Divider" alt="divider" src="https://file.rendit.io/n/SKAsRRePdjw4Ba27didP.svg"/><a href="screen-0c03c117-d14a-452c-91d5-1c6efb4a977f.html" rel="noreferrer" target=""><button id="but" class="LastWeek buttonContent">example</button></a></div></div></div><div class="Cardsprojects CardsprojectsP"><img src="https://firebasestorage.googleapis.com/v0/b/vinci-dev-6e577.appspot.com/o/default-logo%2FleftLogo.png?alt=media" alt="background" class="Image1 Image1P"/><span class="Paragraph1 buttonParag">example</span><div class="FlexColumn2"><div class="DividerCTA"><img class="Divider" alt="divider" src="https://file.rendit.io/n/SKAsRRePdjw4Ba27didP.svg"/><a href="screen-e65edeac-3466-4da8-a831-d6cd3c6e7fc2.html" rel="noreferrer" target=""><button class="LastWeek buttonContent">example</button></a></div></div></div></div><div class="FlexRow1 row2"><a href="#"><button style="background-color:#0d1121" class="LastWeek4 buttonContent">Back</button></a></div></div></div>
     </body>
 </html>
