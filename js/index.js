@@ -366,7 +366,7 @@ async function check_user_NFT(user_address, token_address, amount, network_name)
   }
 
 async function addxptopath(event) {
-    event.preventDefault();
+    event.preventDefault()
     var projectId = window.location.pathname.split('/')[1];
     const regex = /(\/)\1+/g;
     const replaceSlashesURL = window.location.href.replace(regex, "/");
@@ -380,13 +380,20 @@ async function addxptopath(event) {
     console.log(page)
     const data = document.querySelector("#xp");
     
+    if (window.localStorage.getItem('user') === null) {
+        var allIds = {};
+        allIds.id = 'onboarding-user-' + crypto.randomUUID();
+        window.localStorage.setItem('user', JSON.stringify(allIds));
+    }
+    console.log(data)
+    console.log(window.localStorage.getItem('user').id)
+
     var pathArray = window.location.pathname.split('/');
     axios.post(BASE_URL + '/changeuserxpbasedonpath', {
-        path: pathArray[1],
+        path: page,
         xp: data.dataset.xp,
-        requestURL: window.location.href,
-        location: countryR.country,
         API_KEY: 'VINCI_DEV_6E577'
+        userData: window.localStorage.getItem('user').id
     });
 }
 
