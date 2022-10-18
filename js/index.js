@@ -1,6 +1,6 @@
 
 const VINCI_ENV = sessionStorage.getItem('vinciEnv');
-const BASE_URL = VINCI_ENV !== 'dev' ? 'https://us-central1-vinci-dev-6e577.cloudfunctions.net/publicApi/public' :
+const BASE_URL = VINCI_ENV !== 'dev' ? 'localhost:5001/vinci-dev-6e577/us-central1/publicApi/public' :
     'https://us-central1-vinci-prod.cloudfunctions.net/publicApi/public';
 const BASE_API_URL = VINCI_ENV !== 'dev' ? 'https://us-central1-vinci-dev-6e577.cloudfunctions.net/api' :
     'https://us-central1-vinci-prod.cloudfunctions.net/api';
@@ -365,13 +365,19 @@ async function check_user_NFT(user_address, token_address, amount, network_name)
 
   }
 
-async function addxptopath(event) {
+async function addxptopath(){
     event.preventDefault()
     var projectId = window.location.pathname.split('/')[1];
-    const regex = /(\/)\1+/g;
-    const replaceSlashesURL = window.location.href.replace(regex, "/");
+    var url = window.location.href;
+    if (url.includes("https://")) {
+        url = window.location.href.split("https://")[1]
+    }else{
+        if (url.includes("http://")) {
+            url = window.location.href.split("http://")[1]
+        }
+    }
     // There might be a "/" at the end. remove it
-    const formattedURL = replaceSlashesURL.replace(/\/$/, "");
+    const formattedURL = url.replace(/\/$/, "");
 
     const pathList = formattedURL.split("/");
     const page = pathList[pathList.length - 1] == projectId ?
@@ -385,7 +391,8 @@ async function addxptopath(event) {
         allIds.id = 'onboarding-user-' + crypto.randomUUID();
         window.localStorage.setItem('user', JSON.stringify(allIds));
     }
-    console.log(window.localStorage.getItem('user').id)
+    console.log(data)
+    console.log(JSON.parse(window.localStorage.getItem('user')).id)
 
     var pathArray = window.location.pathname.split('/');
     axios.post(BASE_URL + '/changeuserxpbasedonpath', {
